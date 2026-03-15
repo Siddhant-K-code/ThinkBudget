@@ -48,6 +48,28 @@ def main():
     classify_parser = subparsers.add_parser("classify", help="Classify a query's complexity")
     classify_parser.add_argument("query", help="Query text to classify")
 
+    # ── demo ──
+    demo_parser = subparsers.add_parser(
+        "demo", help="Run in demo mode (simulated backend, no GPU needed)"
+    )
+    demo_parser.add_argument(
+        "--port", type=int, default=9100, help="Server port (default: 9100)",
+    )
+    demo_parser.add_argument(
+        "--gpu-name", default="RTX 4090", help="Simulated GPU name",
+    )
+    demo_parser.add_argument(
+        "--gpu-cost", type=float, default=0.39, help="Simulated GPU cost/hr",
+    )
+    demo_parser.add_argument(
+        "--auto-traffic", action="store_true",
+        help="Auto-send demo queries every few seconds",
+    )
+    demo_parser.add_argument(
+        "--traffic-interval", type=float, default=3.0,
+        help="Seconds between auto-traffic queries (default: 3)",
+    )
+
     # ── benchmark ──
     bench_parser = subparsers.add_parser("benchmark", help="Run benchmark suite")
     bench_parser.add_argument(
@@ -75,6 +97,8 @@ def main():
 
     if args.command == "serve":
         _run_serve(args)
+    elif args.command == "demo":
+        _run_demo(args)
     elif args.command == "classify":
         _run_classify(args)
     elif args.command == "benchmark":
@@ -82,6 +106,61 @@ def main():
     else:
         parser.print_help()
         sys.exit(1)
+
+
+def _run_demo(args):
+    """Start ThinkBudget in demo mode with simulated backend."""
+    import asyncio
+    import threading
+    import uvicorn
+    from thinkbudget.demo import create_demo_app, run_demo_traffic
+    from thinkbudget.dashboard import create_dashboard_app
+    from thinkbudget.models import BudgetConfig, ProxyConfig
+
+    config = ProxyConfig(
+        port=args.port,
+        backend_model="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+        budget=BudgetConfig(
+            gpu_cost_per_hour=args.gpu_cost,
+            gpu_name=args.gpu_name,
+        ),
+    )
+
+    app = create_demo_app(config)
+    dashboard = create_dashboard_app()
+    app.mount("/dashboard", dashboard)
+
+    print(f"""
+╔══════════════════════════════════════════════════════════╗
+║              ThinkBudget v0.1.0 — DEMO MODE              ║
+╠══════════════════════════════════════════════════════════╣
+║  Dashboard:  http://localhost:{config.port}/dashboard              ║
+║  API:        http://localhost:{config.port}/v1/chat/completions    ║
+║  GPU:        {config.budget.gpu_name:<20} (simulated)            ║
+║  Auto-traffic: {"ON — query every ~" + str(args.traffic_interval) + "s" if args.auto_traffic else "OFF (send queries manually)":<39}║
+╚══════════════════════════════════════════════════════════╝
+
+  Try:
+    curl -s http://localhost:{config.port}/v1/chat/completions \\
+      -H 'Content-Type: application/json' \\
+      -d '{{"model":"demo","messages":[{{"role":"user","content":"Hello"}}]}}' | python3 -m json.tool
+    """)
+
+    if args.auto_traffic:
+        def _traffic():
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(
+                run_demo_traffic(
+                    f"http://localhost:{config.port}",
+                    interval=args.traffic_interval,
+                )
+            )
+
+        t = threading.Thread(target=_traffic, daemon=True)
+        t.start()
+
+    uvicorn.run(app, host="0.0.0.0", port=config.port, log_level="info")
 
 
 def _run_serve(args):
