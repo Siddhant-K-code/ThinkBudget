@@ -231,6 +231,6 @@ LLMTraceFX    → faster inference (GPU kernel profiling)
 
 ## License
 
-Apache-2.0
+AGPL-3.0
 
 [Siddhant Khare](https://siddhantkhare.com)
