@@ -38,10 +38,18 @@ Several papers describe adaptive reasoning ([Ares](https://arxiv.org/abs/2603.07
 ### Install
 
 ```bash
-uv pip install thinkbudget
-```
+# Install the CLI
+uv tool install thinkbudget
 
-For GPU monitoring: `uv pip install thinkbudget[gpu]`
+# Or add to a project as a dependency
+uv add thinkbudget
+
+# With GPU monitoring
+uv tool install 'thinkbudget[gpu]'
+
+# One-off run without installing
+uvx thinkbudget classify "Hello"
+```
 
 Don't have uv? [Install it](https://docs.astral.sh/uv/getting-started/installation/) or use pip: `pip install thinkbudget`
 
@@ -92,10 +100,12 @@ X-ThinkBudget-Energy-J: 42.3100
 ### Classify only
 
 ```bash
+# With thinkbudget installed
 thinkbudget classify "What is the capital of France?"
 # Tier: SIMPLE | Budget: 128 tokens
 
-thinkbudget classify "Prove the halting problem is undecidable"
+# Or as a one-off
+uvx thinkbudget classify "Prove the halting problem is undecidable"
 # Tier: COMPLEX | Budget: 2,048 tokens
 ```
 
