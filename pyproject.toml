@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "thinkbudget"
+version = "0.1.0"
+description = "Adaptive inference budget controller for self-hosted LLMs. Controls thinking tokens, tracks GPU cost per query."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [
+    { name = "Siddhant Khare", email = "hi@siddhantkhare.com" },
+]
+keywords = ["llm", "inference", "gpu", "budget", "reasoning", "vllm", "cost-optimization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "httpx>=0.25.0",
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "tiktoken>=0.5.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+gpu = [
+    "pynvml>=11.5.0",
+]
+benchmark = [
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "openai>=1.0",
+]
+all = [
+    "thinkbudget[gpu,benchmark]",
+]
+
+[project.scripts]
+thinkbudget = "thinkbudget.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Siddhant-K-code/ThinkBudget"
+Repository = "https://github.com/Siddhant-K-code/ThinkBudget"
+Issues = "https://github.com/Siddhant-K-code/ThinkBudget/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/thinkbudget"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]

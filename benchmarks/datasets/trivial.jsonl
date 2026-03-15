@@ -1,0 +1,20 @@
+{"id": "trivial_000", "query": "Hello", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Hello"}]}
+{"id": "trivial_001", "query": "Hi there", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Hi there"}]}
+{"id": "trivial_002", "query": "Thanks", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Thanks"}]}
+{"id": "trivial_003", "query": "Yes", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Yes"}]}
+{"id": "trivial_004", "query": "OK", "expected_tier": "trivial", "messages": [{"role": "user", "content": "OK"}]}
+{"id": "trivial_005", "query": "What is 2+2?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What is 2+2?"}]}
+{"id": "trivial_006", "query": "What color is the sky?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What color is the sky?"}]}
+{"id": "trivial_007", "query": "Say hello", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Say hello"}]}
+{"id": "trivial_008", "query": "Ping", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Ping"}]}
+{"id": "trivial_009", "query": "What day is it?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What day is it?"}]}
+{"id": "trivial_010", "query": "How are you?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "How are you?"}]}
+{"id": "trivial_011", "query": "Good morning", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Good morning"}]}
+{"id": "trivial_012", "query": "Bye", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Bye"}]}
+{"id": "trivial_013", "query": "Got it", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Got it"}]}
+{"id": "trivial_014", "query": "Sure", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Sure"}]}
+{"id": "trivial_015", "query": "What is Python?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What is Python?"}]}
+{"id": "trivial_016", "query": "Name a fruit", "expected_tier": "trivial", "messages": [{"role": "user", "content": "Name a fruit"}]}
+{"id": "trivial_017", "query": "What is HTTP?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What is HTTP?"}]}
+{"id": "trivial_018", "query": "What is JSON?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What is JSON?"}]}
+{"id": "trivial_019", "query": "What is an API?", "expected_tier": "trivial", "messages": [{"role": "user", "content": "What is an API?"}]}

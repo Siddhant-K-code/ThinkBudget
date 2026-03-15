@@ -1,0 +1,20 @@
+{"id": "simple_000", "query": "What is the capital of France?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is the capital of France?"}]}
+{"id": "simple_001", "query": "Convert 100 Fahrenheit to Celsius", "expected_tier": "simple", "messages": [{"role": "user", "content": "Convert 100 Fahrenheit to Celsius"}]}
+{"id": "simple_002", "query": "What is a REST API?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a REST API?"}]}
+{"id": "simple_003", "query": "Define polymorphism in programming", "expected_tier": "simple", "messages": [{"role": "user", "content": "Define polymorphism in programming"}]}
+{"id": "simple_004", "query": "What is the difference between HTTP and HTTPS?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is the difference between HTTP and HTTPS?"}]}
+{"id": "simple_005", "query": "How many bytes in a kilobyte?", "expected_tier": "simple", "messages": [{"role": "user", "content": "How many bytes in a kilobyte?"}]}
+{"id": "simple_006", "query": "What is a Docker container?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a Docker container?"}]}
+{"id": "simple_007", "query": "Translate 'hello world' to Spanish", "expected_tier": "simple", "messages": [{"role": "user", "content": "Translate 'hello world' to Spanish"}]}
+{"id": "simple_008", "query": "What is the population of Tokyo?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is the population of Tokyo?"}]}
+{"id": "simple_009", "query": "What does CRUD stand for?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What does CRUD stand for?"}]}
+{"id": "simple_010", "query": "What is a hash table?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a hash table?"}]}
+{"id": "simple_011", "query": "What is TCP/IP?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is TCP/IP?"}]}
+{"id": "simple_012", "query": "What is the time complexity of binary search?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is the time complexity of binary search?"}]}
+{"id": "simple_013", "query": "What is a foreign key in SQL?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a foreign key in SQL?"}]}
+{"id": "simple_014", "query": "What is the difference between git merge and rebase?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is the difference between git merge and rebase?"}]}
+{"id": "simple_015", "query": "What is a lambda function?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a lambda function?"}]}
+{"id": "simple_016", "query": "What is CORS?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is CORS?"}]}
+{"id": "simple_017", "query": "What is a webhook?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a webhook?"}]}
+{"id": "simple_018", "query": "What is OAuth?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is OAuth?"}]}
+{"id": "simple_019", "query": "What is a microservice?", "expected_tier": "simple", "messages": [{"role": "user", "content": "What is a microservice?"}]}
